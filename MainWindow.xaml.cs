@@ -1,80 +1,39 @@
-﻿using System;
+﻿using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
-namespace zadanie1
+namespace zadanie2
 {
     public partial class MainWindow : Window
     {
-        double pierwszaLiczba = 0;
-        string dzialanie = "";
-
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void Przycisk_Click(object sender, RoutedEventArgs e)
+        private void Dodaj_Click(object sender, RoutedEventArgs e)
         {
-            Button przycisk = (Button)sender;
-            string tekst = przycisk.Content.ToString();
-
-            // Jeżeli wciśnięto cyfrę
-            if (tekst == "0" || tekst == "1" || tekst == "2" ||
-                tekst == "3" || tekst == "4" || tekst == "5" ||
-                tekst == "6" || tekst == "7" || tekst == "8" ||
-                tekst == "9")
+            if (poleZadania.Text != "")
             {
-                if (wyswietlacz.Text == "0")
-                    wyswietlacz.Text = tekst;
-                else
-                    wyswietlacz.Text += tekst;
+                listaZadan.Items.Add(poleZadania.Text);
+
+                poleZadania.Text = "";
             }
+        }
 
-            // Czyszczenie
-            else if (tekst == "C")
+      
+        private void Usun_Click(object sender, RoutedEventArgs e)
+        {
+            if (listaZadan.SelectedItem != null)
             {
-                wyswietlacz.Text = "0";
-                pierwszaLiczba = 0;
-                dzialanie = "";
-            }
-
-            // Działanie matematyczne
-            else if (tekst == "+" || tekst == "-" ||
-                     tekst == "*" || tekst == "/")
-            {
-                pierwszaLiczba = double.Parse(wyswietlacz.Text);
-                dzialanie = tekst;
-                wyswietlacz.Text = "0";
-            }
-
-            // Wynik
-            else if (tekst == "=")
-            {
-                double drugaLiczba = double.Parse(wyswietlacz.Text);
-                double wynik = 0;
-
-                if (dzialanie == "+")
-                    wynik = pierwszaLiczba + drugaLiczba;
-
-                else if (dzialanie == "-")
-                    wynik = pierwszaLiczba - drugaLiczba;
-
-                else if (dzialanie == "*")
-                    wynik = pierwszaLiczba * drugaLiczba;
-
-                else if (dzialanie == "/")
-                {
-                    if (drugaLiczba == 0)
-                    {
-                        wyswietlacz.Text = "Nie można dzielić przez 0";
-                        return;
-                    }
-
-                    wynik = pierwszaLiczba / drugaLiczba;
-                }
-
-                wyswietlacz.Text = wynik.ToString();
+                listaZadan.Items.Remove(listaZadan.SelectedItem);
             }
         }
     }
