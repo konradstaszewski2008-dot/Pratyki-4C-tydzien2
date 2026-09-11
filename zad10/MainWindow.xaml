@@ -1,0 +1,50 @@
+﻿<Window x:Class="zadanie10.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:zadanie10"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="800">
+    <Grid>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+
+                <Button Content="Czarny"
+                    Click="Czarny_Click"
+                    Width="80"
+                    Margin="5"/>
+
+                <Button Content="Czerwony"
+                    Click="Czerwony_Click"
+                    Width="80"
+                    Margin="5"/>
+
+                <Button Content="Niebieski"
+                    Click="Niebieski_Click"
+                    Width="80"
+                    Margin="5"/>
+
+                <TextBox x:Name="grubosc"
+                     Text="3"
+                     Width="50"
+                     Margin="5"/>
+
+                <Button Content="Wyczyść"
+                    Click="Wyczysc_Click"
+                    Width="80"
+                    Margin="5"/>
+
+            </StackPanel>
+
+            <Canvas x:Name="canvas"
+                Background="White"
+                Height="400"
+                MouseLeftButtonDown="Canvas_MouseDown"
+                MouseMove="Canvas_MouseMove"/>
+        
+
+
+        </StackPanel>
+    </Grid>
+</Window>

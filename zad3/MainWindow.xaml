@@ -1,0 +1,25 @@
+﻿<Window x:Class="zadanie3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:zadanie3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <ComboBox Name="comboBox" Width="200" Margin="10" FontSize="30" SelectionChanged="comboBox_SelectionChanged">
+                <ComboBoxItem Content="Km na mile" />
+                <ComboBoxItem Content="Mile na km" />
+                <ComboBoxItem Content="Kg na lb" />
+                <ComboBoxItem Content="Lb na kg" />
+                <ComboBoxItem Content="C na F" />
+                <ComboBoxItem Content="F na C" />
+            </ComboBox>
+            <TextBox Name="textBox"  Width="200" Margin="10" FontSize="30" TextChanged="textBox_TextChanged" />
+
+            <TextBox Name="wynik"  Width="200" Margin="10" FontSize="30" IsReadOnly="True" />
+        </StackPanel>
+
+    </Grid>
+</Window>
